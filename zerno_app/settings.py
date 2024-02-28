@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     "corsheaders",
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -133,9 +135,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
+MEDIA_URL = '/zerno_app/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -144,6 +146,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dick119ew',
+    'API_KEY': '934197155777786',
+    'API_SECRET': 'K5QloD49Yi1oVw_nn3-ulvlLFds',
+}
+
 
 # CORS_ALLOW_METHODS = (
 #     "DELETE",
